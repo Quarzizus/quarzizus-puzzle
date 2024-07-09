@@ -35,12 +35,9 @@ const Board = () => {
       index + 5 === indexVoid ||
       index - 5 === indexVoid
     ) {
-      console.log("Se puede mover!");
       reSort(index, indexVoid, item);
-      console.log(list);
       return;
     }
-    console.log("Nel pastel", { index, indexVoid });
   };
 
   return (
