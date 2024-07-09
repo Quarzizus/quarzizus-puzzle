@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Container = styled.section`
-  background-color: #160f29;
   max-width: 550px;
   width: 100%;
   aspect-ratio: 1/1;
