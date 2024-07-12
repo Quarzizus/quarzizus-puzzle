@@ -8,6 +8,7 @@ const BoxComponent = styled.div`
   font-size: 2rem;
   color: #160f29;
   cursor: pointer;
+  aspect-ratio: 1/1;
 `;
 const BoxVoidComponent = styled.div`
   background-color: #160f29;
@@ -17,6 +18,7 @@ const BoxVoidComponent = styled.div`
   font-size: 2rem;
   color: #160f29;
   cursor: pointer;
+  aspect-ratio: 1/1;
 `;
 
 export { BoxComponent, BoxVoidComponent };
