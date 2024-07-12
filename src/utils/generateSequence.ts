@@ -1,7 +1,4 @@
-interface ItemType {
-  id: number;
-  item: number;
-}
+import { BoxType } from "../components/Box/types";
 
 const generateSequence = (length: number) => {
   const numberRandom = Math.floor(Math.random() * (length - 1 + 1)) + 1;
@@ -11,15 +8,11 @@ const generateSequence = (length: number) => {
       return i + 1;
     }
   );
-  const sequenceFormated: ItemType[] = sequence.map((item) => {
-    return { id: item, item: item };
+  const sequenceFormated: BoxType[] = sequence.map((value) => {
+    return { id: value, value: value };
   });
   const sequenceRandom = sequenceFormated.sort(() => Math.random() - 0.5);
   return sequenceRandom;
 };
 
 export { generateSequence };
-// [
-//   { id: 1, item: "shrek" },
-//   { id: 2, item: "fiona" },
-// ]
