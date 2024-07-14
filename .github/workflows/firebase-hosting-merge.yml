@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Dependencies
-        run: npm install
-      - name: Generate Build
+      - name: Install dependencies
+        run: npm run install
+      - name: Generate build
         run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QZ_PUZZLE }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_QZLL_PUZZLE }}
           channelId: live
-          projectId: qz-puzzle
+          projectId: qzll-puzzle
