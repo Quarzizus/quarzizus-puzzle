@@ -10,12 +10,13 @@ const BoxComponent = styled.div`
   color: ${wine};
   cursor: pointer;
   aspect-ratio: 1/1;
-  z-index: 999;
+  z-index: 9;
 `;
 const BoxVoidComponent = styled.div`
   background-color: ${wine};
   display: flex;
   align-items: center;
+  z-index: 1;
   justify-content: center;
   font-size: 2rem;
   cursor: pointer;

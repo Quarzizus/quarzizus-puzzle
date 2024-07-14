@@ -7,7 +7,7 @@ const HeaderComponent = styled.header`
   grid-column: 1/-1;
   display: flex;
   align-items: center;
-  font-size: 3.5rem;
+  font-size: 3rem;
   padding-left: 15px;
 `;
 
