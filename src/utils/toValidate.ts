@@ -28,10 +28,16 @@ const toValidate = ({ list, boxValue }: Props): ToValidate => {
     index,
     indexVoid,
   };
-  if (index - 1 === indexVoid)
-    (results.isValidate = true), (results.position = Positions.left);
-  if (index + 1 === indexVoid)
-    (results.isValidate = true), (results.position = Positions.right);
+  if (index - 1 === indexVoid) {
+    results.isValidate = true;
+    results.position = Positions.left;
+    index % 5 === 0 && (results.isValidate = false);
+  }
+  if (index + 1 === indexVoid) {
+    results.isValidate = true;
+    results.position = Positions.right;
+    (index + 1) % 5 === 0 && (results.isValidate = false);
+  }
   if (index - 5 === indexVoid)
     (results.isValidate = true), (results.position = Positions.top);
   if (index + 5 === indexVoid)
