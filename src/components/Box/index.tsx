@@ -3,15 +3,14 @@ import { BoxComponent, BoxVoidComponent } from "./styles";
 import { BoxType } from "./types";
 import { Positions, toValidate } from "../../utils/toValidate";
 import { createTransition } from "../../utils/createTransition";
-import { ReSort } from "../Board/types";
 import { AppContext } from "../../context/AppContext";
+import { reSort } from "../../utils/reSort";
 
 interface Props extends BoxType {
-  handle: ({ index, indexVoid, value }: ReSort) => BoxType[];
   list: BoxType[];
 }
 
-const Box = ({ value, handle, list }: Props) => {
+const Box = ({ value, list }: Props) => {
   const [state, dispatch] = useContext(AppContext);
   const animationTime = 0.4;
   const ref = useRef<HTMLDivElement>(null);
@@ -71,7 +70,8 @@ const Box = ({ value, handle, list }: Props) => {
       resolve(
         setTimeout(() => {
           removeStyles();
-          const newList = handle({ index, indexVoid, value });
+          const newList = reSort({ index, indexVoid, value, list });
+          dispatch({ type: "SET_LIST", payload: newList });
           dispatch({ type: "SET_HASWON", payload: newList });
         }, animationTime * 1000)
       );

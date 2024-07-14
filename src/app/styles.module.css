@@ -16,6 +16,13 @@
   justify-content: space-evenly;
   padding: 10px;
 }
+.container_timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
 @media screen and (max-width: 845px) {
   .App {
@@ -25,5 +32,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .container_timer {
+    width: 100%;
   }
 }
