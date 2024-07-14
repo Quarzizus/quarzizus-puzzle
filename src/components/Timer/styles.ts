@@ -6,6 +6,7 @@ const TimerComponent = styled.section`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
   .Timer_container {
     display: flex;
     p {
