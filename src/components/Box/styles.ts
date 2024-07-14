@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { wine } from "../../styles/variables";
 
 const BoxComponent = styled.div`
-  /* background-color: ${wine}; */
   display: flex;
   align-items: center;
   justify-content: center;

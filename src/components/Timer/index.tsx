@@ -29,11 +29,19 @@ const Timer = () => {
 
   return (
     <TimerComponent>
-      <p>{formatTime(state.time)}</p>
+      <div className="Timer_container">
+        <p>{formatTime(state.time)}</p>
+        {!state.hasWon && (
+          <button onClick={() => toActivedTimer()}>
+            {state.isPause ? "Iniciar" : "Pausar"}
+          </button>
+        )}
+      </div>
       {!state.hasWon && (
-        <button onClick={() => toActivedTimer()}>
-          {state.isPause ? "Iniciar" : "Pausar"}
-        </button>
+        <span>
+          Todos los numeros deben estar ordenados del 1 al 24, sin espacio entre
+          ellos
+        </span>
       )}
     </TimerComponent>
   );
