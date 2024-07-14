@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TimerComponent } from "./styles";
 import { formatNumber } from "../../utils/formatNumber";
+import { AppContext } from "../../context/AppContext";
 
 const Timer = () => {
   const [time, setTime] = useState<number>(0);
-  const [isTimeActive, setTimeActive] = useState<boolean>(false);
+  const [state, dispatch] = useContext(AppContext);
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -13,25 +14,27 @@ const Timer = () => {
   };
 
   const toActivedTimer = () => {
-    setTimeActive(!isTimeActive);
+    dispatch({ type: "SET_ISPAUSE", payload: !state.isPause });
   };
   const handleTime = () => {
     setTime(time + 1);
   };
 
   useEffect(() => {
-    if (isTimeActive) {
+    if (!state.isPause) {
       const interval = setInterval(() => {
         handleTime();
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [isTimeActive, time]);
+  }, [state.isPause, time]);
 
   return (
     <TimerComponent>
       <p>{formatTime(time)}</p>
-      <button onClick={() => toActivedTimer()}>Iniciar</button>
+      <button onClick={() => toActivedTimer()}>
+        {state.isPause ? "Iniciar" : "Pausar"}
+      </button>
     </TimerComponent>
   );
 };

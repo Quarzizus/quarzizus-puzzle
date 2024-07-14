@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { BoxComponent, BoxVoidComponent } from "./styles";
 import { BoxType } from "./types";
 import { Positions, toValidate } from "../../utils/toValidate";
 import { createTransition } from "../../utils/createTransition";
 import { ReSort } from "../Board/types";
+import { AppContext } from "../../context/AppContext";
 
 interface Props extends BoxType {
   handle: ({ index, indexVoid, value }: ReSort) => BoxType[];
@@ -11,6 +12,7 @@ interface Props extends BoxType {
 }
 
 const Box = ({ value, handle, list }: Props) => {
+  const [state, dispatch] = useContext(AppContext);
   const animationTime = 0.4;
   const ref = useRef<HTMLDivElement>(null);
 
@@ -60,7 +62,7 @@ const Box = ({ value, handle, list }: Props) => {
       list,
       boxValue: value,
     });
-    if (!isValidate) return;
+    if (!isValidate || state.isPause) return;
 
     await new Promise((resolve) => {
       moveBox(position);
@@ -69,7 +71,8 @@ const Box = ({ value, handle, list }: Props) => {
       resolve(
         setTimeout(() => {
           removeStyles();
-          handle({ index, indexVoid, value });
+          const newList = handle({ index, indexVoid, value });
+          dispatch({ type: "SET_HASWON", payload: newList });
         }, animationTime * 1000)
       );
     });
