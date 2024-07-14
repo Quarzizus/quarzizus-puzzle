@@ -9,6 +9,7 @@ const Container = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
+  background-color: #fff5ee;
 `;
 
 export { Container };

@@ -1,14 +1,13 @@
 import styled from "styled-components";
+import { wine } from "../../styles/variables";
 
 const HeaderComponent = styled.header`
-  background-color: #160f29;
+  color: ${wine};
   width: 100%;
-  height: 60px;
   grid-column: 1/-1;
   display: flex;
   align-items: center;
-  font-size: 2rem;
-  color: white;
+  font-size: 3.5rem;
   padding-left: 15px;
 `;
 

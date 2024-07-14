@@ -11,6 +11,7 @@ interface Props extends BoxType {
 }
 
 const Box = ({ value, handle, list }: Props) => {
+  const animationTime = 0.4;
   const ref = useRef<HTMLDivElement>(null);
 
   const getWidth = (element: HTMLDivElement | null) => {
@@ -33,14 +34,14 @@ const Box = ({ value, handle, list }: Props) => {
       position: contraryPositions[position],
     });
     refVoid.style.transform = styles;
-    refVoid.style.transition = "1s linear";
+    refVoid.style.transition = `${animationTime}s linear`;
   };
   const moveBox = (position: Positions) => {
     const width = getWidth(ref?.current);
     const styles = createTransition({ width, position });
     if (ref.current?.style) {
       ref.current.style.transform = styles;
-      ref.current.style.transition = "1s linear";
+      ref.current.style.transition = `${animationTime}s linear`;
     }
   };
   const removeStyles = () => {
@@ -69,7 +70,7 @@ const Box = ({ value, handle, list }: Props) => {
         setTimeout(() => {
           removeStyles();
           handle({ index, indexVoid, value });
-        }, 1000)
+        }, animationTime * 1000)
       );
     });
   };

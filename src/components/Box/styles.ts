@@ -1,22 +1,23 @@
 import styled from "styled-components";
+import { wine } from "../../styles/variables";
 
 const BoxComponent = styled.div`
-  background-color: #d6ffb7;
+  /* background-color: ${wine}; */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: #160f29;
+  color: ${wine};
   cursor: pointer;
   aspect-ratio: 1/1;
+  z-index: 999;
 `;
 const BoxVoidComponent = styled.div`
-  background-color: #160f29;
+  background-color: ${wine};
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: #160f29;
   cursor: pointer;
   aspect-ratio: 1/1;
 `;
