@@ -7,3 +7,23 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.App .container {
+  display: flex;
+  gap: 15px;
+  max-width: 1440px;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+@media screen and (max-width: 845px) {
+  .App {
+    gap: 40px;
+  }
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
